@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>JS Function</title>
+  </head>
+  <body>
+    <div id="check-type"></div>
+  </body>
+</html>
+
+<script>
+  function checkType(value) {
+    return typeof value;
+  }
+
+  let html = "";
+  html += "<br/>name without assign: " + checkType(x);
+  var x = 12345;
+  html += "<br/>name without define: " + checkType(x);
+  x = "Aman";
+  html += " <br/>name with string: " + checkType(x);
+  x = true;
+  html += "<br/>name with true: " + checkType(x);
+  x = null;
+  html += "<br/>name with null: " + checkType(x);
+  x = { key: "value" };
+  html += "<br/>name with object curly brackets: " + checkType(x);
+  x = [];
+  html += "<br/>name with array brackets: " + checkType(x);
+  x = function () {};
+  html += "<br/>name with array brackets: " + checkType(x);
+  document.getElementById("check-type").innerHTML = html;
+</script>
