@@ -32,5 +32,7 @@
   html += "<br/>name with array brackets: " + checkType(x);
   x = function () {};
   html += "<br/>name with array brackets: " + checkType(x);
+  x = document.getElementById;
+  html += "<br/>document.getElementById: " + checkType(x);
   document.getElementById("check-type").innerHTML = html;
 </script>
