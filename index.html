@@ -5,34 +5,58 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>JS Function</title>
+    <style>
+      .f-r-center {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+      }
+      .f-c-center {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+      }
+      #check-type {
+        padding-top: 20px;
+      }
+    </style>
   </head>
   <body>
-    <div id="check-type"></div>
+    <div class="f-c-center">
+      <h3 class="f-r-center">Check Data type</h3>
+      <br />
+      <div class="f-r-center">
+        <input
+          type="text"
+          id="input-text"
+          placeholder="Enter Some text"
+          onkeyup="checkDataType()"
+        />
+        <div><button onclick="checkDataType()">Check</button></div>
+      </div>
+      <div class="f-r-center" id="check-type"></div>
+    </div>
   </body>
 </html>
 
 <script>
-  function checkType(value) {
-    return typeof value;
+  /**
+   * Check if data exists
+   * If not, then return fallback
+   * check if the data is an instance of/ or array
+   * If true, return array
+   * Return type of element
+   */
+  function checkDataType() {
+    let data = document.getElementById("input-text").value;
+    if (!data) {
+      document.getElementById("check-type").innerHTML =
+        "Please Enter Some text";
+      return false;
+    }
+    if (data === undefined) return "Please provide data";
+    if (data instanceof Array) return "Data is of Array type";
+    document.getElementById("check-type").innerHTML =
+      "'" + data + "' is of " + typeof data + " type";
   }
-
-  let html = "";
-  html += "<br/>name without assign: " + checkType(x);
-  var x = 12345;
-  html += "<br/>name without define: " + checkType(x);
-  x = "Aman";
-  html += " <br/>name with string: " + checkType(x);
-  x = true;
-  html += "<br/>name with true: " + checkType(x);
-  x = null;
-  html += "<br/>name with null: " + checkType(x);
-  x = { key: "value" };
-  html += "<br/>name with object curly brackets: " + checkType(x);
-  x = [];
-  html += "<br/>name with array brackets: " + checkType(x);
-  x = function () {};
-  html += "<br/>name with array brackets: " + checkType(x);
-  x = document.getElementById;
-  html += "<br/>document.getElementById: " + checkType(x);
-  document.getElementById("check-type").innerHTML = html;
 </script>
