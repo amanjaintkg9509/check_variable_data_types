@@ -26,13 +26,9 @@
       <h3 class="f-r-center">Check Data type</h3>
       <br />
       <div class="f-r-center">
-        <input
-          type="text"
-          id="input-text"
-          placeholder="Enter Some text"
-          onkeyup="checkDataType()"
-        />
-        <div><button onclick="checkDataType()">Check</button></div>
+        <div>
+          <button onclick="checkDataType([{'data':1234}])">Check</button>
+        </div>
       </div>
       <div class="f-r-center" id="check-type"></div>
     </div>
@@ -47,15 +43,13 @@
    * If true, return array
    * Return type of element
    */
-  function checkDataType() {
-    let data = document.getElementById("input-text").value;
-    if (!data) {
-      document.getElementById("check-type").innerHTML =
-        "Please Enter Some text";
-      return false;
-    }
-    if (data === undefined) return "Please provide data";
-    if (data instanceof Array) return "Data is of Array type";
+  function checkDataType(data) {
+    if (data === undefined)
+      return (document.getElementById("check-type").innerHTML =
+        "Please provide data");
+    if (data instanceof Array)
+      return (document.getElementById("check-type").innerHTML =
+        "Data is of Array type");
     document.getElementById("check-type").innerHTML =
       "'" + data + "' is of " + typeof data + " type";
   }
